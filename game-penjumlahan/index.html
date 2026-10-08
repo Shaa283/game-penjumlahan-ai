@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>Game Penjumlahan — Hand Camera</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <video id="video" playsinline muted></video>
+  <canvas id="overlay"></canvas>
+
+  <div id="hud" class="hidden">
+    <div class="hud-brand">
+      <div class="brand-mark">+</div>
+      <div>
+        <strong>Math Hand</strong>
+        <span>AI Camera Game</span>
+      </div>
+    </div>
+    <div class="hud-stats">
+      <div class="pill score-pill"><span>SKOR</span><b id="score">0</b></div>
+      <div class="pill"><span>SOAL</span><b id="progress">1/10</b></div>
+    </div>
+  </div>
+
+  <div id="question" class="glass hidden">
+    <div class="question-label">BERAPA HASILNYA?</div>
+    <div class="equation"><span id="q-text"></span><span class="equals">=</span><span id="dropzone">?</span></div>
+  </div>
+
+  <div id="hint" class="hidden">Cubit jempol + telunjuk pada angka, seret ke <b>?</b>, lalu lepas</div>
+  <div id="options" class="hidden"></div>
+  <div id="feedback"></div>
+
+  <div id="screen-start" class="screen">
+    <div class="card glass hero-card">
+      <div class="eyebrow"><span class="live-dot"></span> CAMERA INTERACTIVE</div>
+      <div class="hero-icon">∑</div>
+      <h1>Game Penjumlahan</h1>
+      <p class="subtitle">Belajar berhitung dengan gerakan tangan.</p>
+
+      <div class="feature-row">
+        <div><b>10</b><span>Soal acak</span></div>
+        <div><b>10</b><span>Poin / soal</span></div>
+        <div><b>100</b><span>Skor maksimal</span></div>
+      </div>
+
+      <button class="target big" id="btn-start">Mulai Bermain <span>→</span></button>
+      <div class="gesture-note"><span class="gesture-icon">☝</span><span><b>Kontrol tangan</b><br>Cubit untuk memilih dan menyeret jawaban.</span></div>
+      <p class="small" id="status">Menyalakan kamera...</p>
+    </div>
+  </div>
+
+  <div id="screen-end" class="screen hidden">
+    <div class="card glass hero-card result-card">
+      <div class="eyebrow">SESI SELESAI</div>
+      <div class="hero-icon trophy">★</div>
+      <h1>Permainan Selesai</h1>
+      <div class="score-caption">SKOR AKHIR</div>
+      <div id="final-score">0</div>
+      <p id="final-msg"></p>
+      <button class="target big" id="btn-restart">Main Lagi <span>↻</span></button>
+    </div>
+  </div>
+
+  <div id="cursor"></div>
+
+  <script src="mediapipe/hands.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
